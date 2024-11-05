@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Rover</title>
+    <link rel="icon" href="logo.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       body {
+            background-color: rgb(0, 0, 0);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: white;
+        }
+
+        
+        header {
+            background-color: black;
+            color: rgb(248, 54, 54);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
+
+        header h1 {
+            font-size: 3rem; 
+            letter-spacing: 3px;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        header em {
+            font-size: 2rem;
+            color: rgb(248, 54, 54);
+            display: block;
+            margin-top: 10px; 
+            font-style: normal;
+        }
+
+        header img {
+            width: 80px; 
+            height: auto;
+            margin-bottom: 10px; 
+        }
+
+
+        nav {
+            background-color: lightgray;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: linear-gradient(to left, lightgray, white);
+            text-align: center;
+        }
+
+        nav a {
+            color: rgb(240, 3, 3);
+            text-decoration: none;
+            padding: 12px 20px; /* Plus d'espace autour du texte */
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: red;
+            color: aliceblue;
+        }
+        nav a {
+            color: rgb(240, 3, 3);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: red;
+            color: aliceblue;
+        }
+
+       
+        #sec1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: black;
+            translate: 190px -40px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        
+        table {
+            text-align: center;
+            margin: auto;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .label-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border: 2px solid rgb(248, 54, 54);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .label-box:hover {
+            background-color: rgba(207, 199, 199, 0.2);
+        }
+
+        input[type="button"] {
+            border-radius: 25px;
+            background-color: red;
+            padding: 5px 15px;
+            cursor: pointer;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="button"]:hover {
+            background-color: darkred;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        hr {
+            color: white;
+        }
+        footer {
+            background-color: black;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: rgb(248, 54, 54);
+        }
+        #chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            width: 300px;
+            height: 400px;
+            border-radius: 8px;
+            display: none; 
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #chatbox-header {
+            background-color: rgb(248, 54, 54);
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #chatbox-messages {
+            padding: 10px;
+            height: 280px;
+            overflow-y: auto;
+            color: white;
+        }
+
+        #chatbox-footer {
+            display: flex;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 0 0 8px 8px;
+        }
+
+        #chatbox-footer input {
+            width: 80%;
+            padding: 5px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        #chatbox-footer button {
+            padding: 5px 15px;
+            background-color: rgb(248, 54, 54);
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        #chatbox-footer button:hover {
+            background-color: darkred;
+        }
+
+        #chatbox-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgb(248, 54, 54);
+            border-radius: 50%;
+            padding: 15px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #chatbox-toggle:hover {
+            background-color: darkred;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.webp" alt="Logo">
+        <h1><em>Range Rover</em></h1>
+    </header>
+
+    <nav>
+        <a href="Acceuil.html" target="if">Accueil</a>
+        <a href="Service.html" target="if">Service</a>
+        <a href="configuration.html" target="if">Configuration</a>
+    </nav>
+       
+    
+ 
+    </nav>
+
+
+    <video autoplay muted loop>
+        <source src="votre-video.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+    </video>
+
+
+    <section id="sec1">
+        <iframe src="Acceuil.html" name="if"></iframe>
+    </section>
+
+    <hr>
+
+ 
+    <section>
+        <table>
+            <tr>
+                <td>
+                    <div class="image-container">
+                        <img src="images.jpg" alt="Image 1">
+                    </div>
+                </td>
+                <td>
+                    <div class="image-container">
+                        <img src="img1.jpg" alt="Image 2">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="label-box">
+                        <label for="">À partir de 127,000$<br>Découvrez la toute nouvelle SUV de <span>Land Rover</span><br>Plongez dans le monde du luxe avec cette nouvelle Discovery.<br>
+                            <a href="https://www.landrover.co.uk/range-rover/range-rover/index.html"><input type="button" value="En savoir plus"></a>
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <div class="label-box">
+                        <label for="">À partir de 99,000$<br>Découvrez la toute nouvelle SUV de <span>Land Rover</span><br>Plongez dans le monde du luxe avec cette nouvelle Discovery.<br>
+                            <a href="https://www.landrover.co.uk/range-rover/range-rover/index.html"><input type="button" value="En savoir plus"></a>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2024 Range Rover. Tous droits réservés.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/range.rover" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/range.rover" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/range_rover" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/range-rover" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <div id="chatbox-toggle">
+        <i class="fas fa-comment-alt"></i>
+    </div>
+
+    <div id="chatbox">
+        <div id="chatbox-header" onclick="toggleChatbox()">Support Chat</div>
+        <div id="chatbox-messages"></div>
+        <div id="chatbox-footer">
+            <input background-color="white" type="text" id="user-message" placeholder="Votre message...">
+            <button onclick="sendMessage()">Envoyer</button>
+        </div>
+    </div>
+
+    <script>
+        // En cours de construction
+        function toggleChatbox() {
+            var chatbox = document.getElementById("chatbox");
+            chatbox.style.display = (chatbox.style.display === "none" || chatbox.style.display === "") ? "flex" : "none";
+        }
+
+        // Send message
+        function sendMessage() {
+            var userMessage = document.getElementById("user-message").value;
+            if (userMessage.trim() !== "") {
+                var chatMessages = document.getElementById("chatbox-messages");
+                var newMessage = document.createElement("div");
+                newMessage.textContent = "Vous: " + userMessage;
+                chatMessages.appendChild(newMessage);
+                document.getElementById("user-message").value = ""; // Clear input
+
+                // Simulate a response from the bot
+                setTimeout(function() {
+                    var botMessage = document.createElement("div");
+                    botMessage.textContent = "Bot: Merci pour votre message, nous reviendrons vers vous bientôt!";
+                    chatMessages.appendChild(botMessage);
+                    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
